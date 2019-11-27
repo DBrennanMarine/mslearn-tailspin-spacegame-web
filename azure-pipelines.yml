@@ -124,8 +124,7 @@ stages:
   condition:
     and
     (
-      succeeded(),
-      eq(variables['Build.SourceBranchName'], variables['releaseBranchName'])
+      succeeded()
     )
   jobs:
   - deployment: Deploy
