@@ -118,7 +118,7 @@ stages:
       condition: succeeded()
 
 - stage: 'Dev'
-  displayName: 'Deploy to the dev environment'
+  displayName: 'Deploy to the QA environment'
   dependsOn: Build
   #condition: and (succeeded(), eq(variables['Build.SourceBranchName'], variables['releaseBranchName']) )
   condition: succeeded()
@@ -143,7 +143,7 @@ stages:
               package: '$(Pipeline.Workspace)/drop/$(buildConfiguration)/Tailspin.SpaceGame.Web.zip'
 
 - stage: 'Test'
-  displayName: 'Deploy to the test environment'
+  displayName: 'Deploy to the UAT environment'
   dependsOn: Dev
   #condition: eq(variables['Build.Reason'], 'Schedule')
   jobs:
